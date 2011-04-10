@@ -18,6 +18,8 @@
 // along with libxmlmmm. If not, see <http://www.gnu.org/licenses/>.
 //
 
+#ifndef _LIBXMLMM_ATTRIBUTE_H_INCLUDED_
+#define _LIBXMLMM_ATTRIBUTE_H_INCLUDED_
 #pragma once
 
 #include <string>
@@ -48,3 +50,4 @@ namespace xml
         void set_value(const std::string& value);
     };    
 }
+#endif // _LIBXMLMM_ATTRIBUTE_H_INCLUDED_

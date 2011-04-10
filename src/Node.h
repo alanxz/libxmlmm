@@ -18,6 +18,8 @@
 // along with libxmlmmm. If not, see <http://www.gnu.org/licenses/>.
 //
 
+#ifndef _LIBXMLMM_NODE_H_INCLUDED_
+#define _LIBXMLMM_NODE_H_INCLUDED_
 #pragma once
 
 #include <string>
@@ -178,3 +180,4 @@ namespace xml
 
     };    
 }
+#endif // _LIBXMLMM_NODE_H_INCLUDED_

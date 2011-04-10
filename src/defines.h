@@ -18,6 +18,8 @@
 // along with libxmlmmm. If not, see <http://www.gnu.org/licenses/>.
 //
 
+#ifndef _LIBXMLMM_DEFINES_H_INCLUDED_
+#define _LIBXMLMM_DEFINES_H_INCLUDED_
 #pragma once
 
 #ifdef WIN32
@@ -25,3 +27,4 @@
 #else
 #define LIBXMLMM_EXPORT 
 #endif
+#endif // _LIBXMLMM_DEFINES_H_INCLUDED_

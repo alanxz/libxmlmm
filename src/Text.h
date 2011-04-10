@@ -18,6 +18,8 @@
 // along with libxmlmmm. If not, see <http://www.gnu.org/licenses/>.
 //
 
+#ifndef _LIBXMLMM_TEXT_H_INCLUDED_
+#define _LIBXMLMM_TEXT_H_INCLUDED_
 #pragma once
 
 #include "Content.h"
@@ -37,3 +39,4 @@ namespace xml
         
     };    
 }
+#endif // _LIBXMLMM_TEXT_H_INCLUDED_

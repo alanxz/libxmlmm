@@ -18,6 +18,8 @@
 // along with libxmlmmm. If not, see <http://www.gnu.org/licenses/>.
 //
 
+#ifndef _LIBXMLMM_DOCUMENT_H_INCLUDED_
+#define _LIBXMLMM_DOCUMENT_H_INCLUDED_
 #pragma once
 
 #include <string>
@@ -202,3 +204,4 @@ namespace xml
      **/
     LIBXMLMM_EXPORT std::istream& operator >> (std::istream& is, Document& doc);
 }
+#endif // _LIBXMLMM_DOCUMENT_H_INCLUDED_

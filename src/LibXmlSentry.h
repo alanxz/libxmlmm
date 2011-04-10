@@ -23,6 +23,8 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 // 
 
+#ifndef _LIBXMLMM_LIBXMLSENTRY_H_INCLUDED_
+#define _LIBXMLMM_LIBXMLSENTRY_H_INCLUDED_
 #pragma once
 
 namespace xml
@@ -61,3 +63,4 @@ namespace xml
     };
 }
 
+#endif // _LIBXMLMM_LIBXMLSENTRY_H_INCLUDED_
