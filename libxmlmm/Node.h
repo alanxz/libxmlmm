@@ -22,12 +22,14 @@
 #define _LIBXMLMM_NODE_H_INCLUDED_
 #pragma once
 
+#include "defines.h"
+#include "utils.h"
+
 #include <string>
 #include <vector>
 #include <libxml/tree.h>
 #include <libxml/xpath.h>
 
-#include "defines.h"
 
 namespace xml
 {

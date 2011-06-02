@@ -25,13 +25,14 @@
 #include <string>
 
 #include "Node.h"
+#include "defines.h"
 
 namespace xml
 {
     /**
      * XML Attribtue Node Wrapper
      **/    
-    class Attribute : public Node
+    class LIBXMLMM_EXPORT Attribute : public Node
     {
     public:
         /**

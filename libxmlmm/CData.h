@@ -23,6 +23,7 @@
 #pragma once
 
 #include "Content.h"
+#include "defines.h"
 
 namespace xml
 {

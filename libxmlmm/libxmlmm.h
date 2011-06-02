@@ -23,19 +23,19 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 // 
 
-#ifndef _LIBXMLMM_H__INCLUDED_
-#define _LIBXMLMM_H__INCLUDED_
+#ifndef _LIBXMLMM_H_INCLUDED_
+#define _LIBXMLMM_H_INCLUDED_
 
 #include <libxmlmm/Document.h>
 #include <libxmlmm/Node.h>
 #include <libxmlmm/Element.h>
-#include <libxmlmm/"Content.h>
-#include <libxmlmm/"Text.h>
-#include <libxmlmm/"CData.h>
-#include <libxmlmm/"Comment.h>
-#include <libxmlmm/"ProcessingInstruction.h>
-#include <libxmlmm/"utils.h>
-#include <libxmlmm/"LibXmlSentry.h>
-#include <libxmlmm/"exceptions.h>
+#include <libxmlmm/Content.h>
+#include <libxmlmm/Text.h>
+#include <libxmlmm/CData.h>
+#include <libxmlmm/Comment.h>
+#include <libxmlmm/ProcessingInstruction.h>
+#include <libxmlmm/utils.h>
+#include <libxmlmm/LibXmlSentry.h>
+#include <libxmlmm/exceptions.h>
 
-#endif //_LIBXMLMM_H__INCLUDED_
+#endif //_LIBXMLMM_H_INCLUDED_

@@ -22,13 +22,13 @@
 #define _LIBXMLMM_DOCUMENT_H_INCLUDED_
 #pragma once
 
+#include "defines.h"
+#include "Element.h"
+#include "LibXmlSentry.h"
+
 #include <string>
 #include <iosfwd>
 #include <libxml/tree.h>
-
-#include "defines.h"
-#include "LibXmlSentry.h"
-#include "Element.h"
 
 namespace xml
 {

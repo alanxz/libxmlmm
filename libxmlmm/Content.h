@@ -22,9 +22,10 @@
 #define _LIBXMLMM_CONTENT_H_INCLUDED_
 #pragma once
 
-#include <string>
-
 #include "Node.h"
+#include "defines.h"
+
+#include <string>
 
 namespace xml
 {

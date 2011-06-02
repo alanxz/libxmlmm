@@ -21,35 +21,37 @@
 #ifndef _LIBXMLMM_EXCEPTIONS_H_
 #define _LIBXMLMM_EXCEPTIONS_H_
 
+#include "defines.h"
+
 #include <stdexcept>
 
 namespace xml
 {
-    struct exception : std::runtime_error
+    struct LIBXMLMM_EXPORT exception : std::runtime_error
     {
         explicit exception(const std::string &what)
             : runtime_error("xmlmm: " + what) {}
         ~exception() throw() {}
     };
 
-    struct NoRootElement : exception
+    struct LIBXMLMM_EXPORT NoRootElement : exception
     {
         NoRootElement() : exception("No root element") {}
     };
 
-    struct EmptyDocument : exception
+    struct LIBXMLMM_EXPORT EmptyDocument : exception
     {
         EmptyDocument() : exception("Document is empty") {}
     };
 
-    struct InvalidXPath : exception
+    struct LIBXMLMM_EXPORT InvalidXPath : exception
     {
         explicit InvalidXPath(const std::string &xpath)
             : exception("Invalid XPath: " + xpath) {}
         ~InvalidXPath() throw() {}
     };
 
-    struct NoSuchAttribute : exception
+    struct LIBXMLMM_EXPORT NoSuchAttribute : exception
     {
         NoSuchAttribute(const std::string &attribute,
                         const std::string &nodeName)

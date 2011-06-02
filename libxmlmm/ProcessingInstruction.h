@@ -22,6 +22,7 @@
 #define _LIBXMLMM_PROCESSINGINSTRUCTION_H_INCLUDED_
 #pragma once
 
+#include "defines.h"
 #include "Content.h"
 
 namespace xml
