@@ -30,6 +30,7 @@ SET(libxmlmm_SRCS
 	nodes/Element.cpp
 
 	nodes/Node.h
+	nodes/Node.hxx
 	nodes/Node.cpp
 
 	nodes/ProcessingInstruction.h
@@ -37,6 +38,9 @@ SET(libxmlmm_SRCS
 
 	nodes/Text.h
 	nodes/Text.cpp
+
+	nodes/find_nodeset.h
+	nodes/find_nodeset.cpp
 )
 
 INCLUDE_DIRECTORIES(${LIBXML2_INCLUDE_DIR})

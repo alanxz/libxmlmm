@@ -31,6 +31,7 @@
 #include <cassert>
 #include <iostream>
 #include <iterator>
+#include <libxml/tree.h>
 #include <libxml/xmlerror.h>
 
 namespace xmlmm

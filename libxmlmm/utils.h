@@ -24,7 +24,11 @@
 #include <iosfwd>
 #include <string>
 #include <sstream>
-#include <libxml/tree.h>
+
+extern "C"
+{
+  struct _xmlNode;
+}
 
 namespace xmlmm
 {    
@@ -38,14 +42,14 @@ namespace xmlmm
      *
      * @note This function is used as callback to libxml.
      **/
-    void wrap_node(xmlNode* const node);
+    void wrap_node(_xmlNode* const node);
     
     /**
      * Free the wrapper of a node.
      *
      * @note This function is used as callback to libxml.
      **/
-    void free_wrapper(xmlNode* node);
+    void free_wrapper(_xmlNode* node);
     
     /** Read from a stream until EOF. **/    
     std::string read_until_eof(std::istream& is);

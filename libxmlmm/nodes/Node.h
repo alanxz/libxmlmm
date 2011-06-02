@@ -26,9 +26,11 @@
 
 #include <string>
 #include <vector>
-#include <libxml/tree.h>
-#include <libxml/xpath.h>
 
+extern "C"
+{
+  struct _xmlNode;
+}
 
 namespace xmlmm
 {
@@ -48,7 +50,7 @@ namespace xmlmm
          *
          * @param cobj The xmlNode object to wrap.
          **/
-        explicit Node(xmlNode* const cobj);
+        explicit Node(_xmlNode* const cobj);
         
     public:
         /**
@@ -129,56 +131,24 @@ namespace xmlmm
 
     protected:    
         /** The wrapped xmlNode object. **/
-        xmlNode* cobj;
+        _xmlNode* cobj;
+
+        template <typename NodeType_>
+        NodeType_ find(const std::string &xpath) const;
+
+        template <typename NodeType_>
+        std::vector<NodeType_> find_all(const std::string &xpath) const;
     
-        // Helper object to keep our xpath search context.
-        struct find_nodeset {
-            find_nodeset(xmlNode *const cobj,
-                         const std::string &xpath,
-                         const xmlXPathObjectType type = XPATH_UNDEFINED);
-            ~find_nodeset();
-
-            operator xmlXPathObject *()
-            { return result; }
-
-            operator xmlNodeSet *()
-            { return result->nodesetval; }
-
-        private:
-            xmlXPathContext* ctxt;
-            xmlXPathObject* result;
-        };
-
-        template <typename NodeType_>
-        NodeType_ find(const std::string &xpath) const {
-            find_nodeset search(cobj, xpath, XPATH_NODESET);
-            xmlNodeSet *const nodeset = search;
-            if (!nodeset || nodeset->nodeNr == 0)
-            {
-                return NULL;
-            }
-            return reinterpret_cast<NodeType_>(nodeset->nodeTab[0]->_private);
-        }
-
-        template <typename NodeType_>
-        std::vector<NodeType_> find_all(const std::string &xpath) const {
-            find_nodeset search(cobj, xpath, XPATH_NODESET);
-            xmlNodeSet *const nodeset = search;
-            std::vector<NodeType_> nodes;
-            if (nodeset != NULL)
-            {
-                for (int i = 0; i != nodeset->nodeNr; i++)
-                {
-                    nodes.push_back(reinterpret_cast<NodeType_>(nodeset->nodeTab[i]->_private));
-                }
-            }
-            return nodes;
-        }
-
     private:
         Node(const Node&);
         Node& operator = (const Node&);
 
     };    
-}
+
+} // namespace xmlmm
+
+#ifdef BUILDING_LIBXMLMM
+# include "Node.hxx"
+#endif
+
 #endif // _LIBXMLMM_NODE_H_INCLUDED_

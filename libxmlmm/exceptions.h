@@ -25,6 +25,11 @@
 
 #include <stdexcept>
 
+#ifdef _MSC_VER
+# pragma warning ( push )
+# pragma warning ( disable: 4275 )
+#endif 
+
 namespace xmlmm
 {
     struct LIBXMLMM_EXPORT exception : std::runtime_error
@@ -60,5 +65,9 @@ namespace xmlmm
         ~NoSuchAttribute() throw() {}
     };
 }
+
+#ifdef _MSC_VER
+# pragma warning ( pop )
+#endif
 
 #endif

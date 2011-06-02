@@ -27,7 +27,16 @@
 
 #include <string>
 #include <iosfwd>
-#include <libxml/tree.h>
+
+#ifdef _MSC_VER
+# pragma warning ( push )
+# pragma warning ( disable: 4251 )
+#endif 
+
+extern "C" 
+{
+  struct _xmlDoc;
+}
 
 namespace xmlmm
 {
@@ -185,7 +194,7 @@ namespace xmlmm
         /** @} **/
         
     private:
-        xmlDoc* cobj;
+        _xmlDoc* cobj;
         
         LibXmlSentry libxml_sentry;
         
@@ -203,4 +212,8 @@ namespace xmlmm
      **/
     LIBXMLMM_EXPORT std::istream& operator >> (std::istream& is, Document& doc);
 }
+
+#ifdef _MSC_VER
+# pragma warning ( pop )
+#endif
 #endif // _LIBXMLMM_DOCUMENT_H_INCLUDED_

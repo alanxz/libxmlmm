@@ -46,7 +46,7 @@ namespace xmlmm
 //------------------------------------------------------------------------------
     bool Content::is_blank() const 
     {
-        return xmlIsBlankNode(const_cast<xmlNode*>(cobj));   
+        return (0 != xmlIsBlankNode(const_cast<xmlNode*>(cobj)));
     }
 
 }

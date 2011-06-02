@@ -22,8 +22,12 @@
 
 #include "libxmlmm/nodes/Element.h"
 #include "libxmlmm/nodes/Content.h"
+#include "libxmlmm/nodes/find_nodeset.h"
 #include "libxmlmm/exceptions.h"
 #include "libxmlmm/utils.h"
+
+#include <libxml/tree.h>
+#include <libxml/xpath.h>
 
 #include <cassert>
 
@@ -107,7 +111,7 @@ namespace xmlmm
 //------------------------------------------------------------------------------    
     std::string Node::query_string(const std::string& xpath) const
     {
-        find_nodeset search(cobj, xpath);
+        impl::find_nodeset search(cobj, xpath);
         const xmlXPathObject* const result = search;
         
         std::string value;
@@ -144,7 +148,7 @@ namespace xmlmm
 //------------------------------------------------------------------------------    
     double Node::query_number(const std::string& xpath) const
     {
-        find_nodeset search(cobj, xpath);
+        impl::find_nodeset search(cobj, xpath);
         const xmlXPathObject *const result = search;
         
         double value;
@@ -170,38 +174,6 @@ namespace xmlmm
         return value;
     }
                 
-
-//------------------------------------------------------------------------------
-
-    Node::find_nodeset::find_nodeset(xmlNode *const cobj,
-                                     const std::string &xpath,
-                                     const xmlXPathObjectType type)
-    {
-        ctxt = xmlXPathNewContext(cobj->doc);
-        ctxt->node = cobj;
-
-        result = xmlXPathEval(reinterpret_cast<const xmlChar*>(xpath.c_str()), ctxt);
-        if (!result)
-        {
-        xmlXPathFreeContext(ctxt);
-            throw InvalidXPath(xpath);
-        }
-                
-        if (type != XPATH_UNDEFINED && result->type != type)
-        {
-            xmlXPathFreeObject(result);
-            xmlXPathFreeContext(ctxt);
-            throw exception("Unsuported query.");
-        }
-    }
-
-//------------------------------------------------------------------------------
-
-    Node::find_nodeset::~find_nodeset()
-    {
-        xmlXPathFreeObject(result);
-        xmlXPathFreeContext(ctxt);
-}
 
 //------------------------------------------------------------------------------
 
