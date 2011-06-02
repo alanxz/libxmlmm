@@ -28,7 +28,7 @@
 #include <string>
 #include <sstream>
 
-namespace xml
+namespace xmlmm
 {
     /**
      * XML Element Wrapper

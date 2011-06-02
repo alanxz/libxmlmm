@@ -24,7 +24,7 @@
 #include "libxmlmm/nodes/Content.h"
 #include "libxmlmm/defines.h"
 
-namespace xml
+namespace xmlmm
 {
     /**
      * CData Node

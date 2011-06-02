@@ -26,7 +26,7 @@
 
 #include <string>
 
-namespace xml
+namespace xmlmm
 {
     /**
      * XML Text Node Wrapper

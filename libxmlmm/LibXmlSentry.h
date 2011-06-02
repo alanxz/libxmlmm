@@ -26,7 +26,7 @@
 #ifndef _LIBXMLMM_LIBXMLSENTRY_H_INCLUDED_
 #define _LIBXMLMM_LIBXMLSENTRY_H_INCLUDED_
 
-namespace xml
+namespace xmlmm
 {
     /**
      * Manages libxml's initialisation and cleanup.

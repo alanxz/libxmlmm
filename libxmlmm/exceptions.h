@@ -25,7 +25,7 @@
 
 #include <stdexcept>
 
-namespace xml
+namespace xmlmm
 {
     struct LIBXMLMM_EXPORT exception : std::runtime_error
     {

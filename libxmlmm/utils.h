@@ -26,7 +26,7 @@
 #include <sstream>
 #include <libxml/tree.h>
 
-namespace xml
+namespace xmlmm
 {    
     /**
      * Get the last error as string from libxml.

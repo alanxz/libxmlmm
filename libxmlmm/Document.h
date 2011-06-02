@@ -29,7 +29,7 @@
 #include <iosfwd>
 #include <libxml/tree.h>
 
-namespace xml
+namespace xmlmm
 {
     /**
      * XML DOM Document

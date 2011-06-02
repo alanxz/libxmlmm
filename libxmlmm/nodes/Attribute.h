@@ -26,7 +26,7 @@
 #include "libxmlmm/nodes/Node.h"
 #include "libxmlmm/defines.h"
 
-namespace xml
+namespace xmlmm
 {
     /**
      * XML Attribtue Node Wrapper

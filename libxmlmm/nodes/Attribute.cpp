@@ -21,7 +21,7 @@
 #include "Attribute.h"
 #include "libxmlmm/utils.h"
 
-namespace xml
+namespace xmlmm
 {
 //------------------------------------------------------------------------------
     Attribute::Attribute(xmlNode* const cobj)

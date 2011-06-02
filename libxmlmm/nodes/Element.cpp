@@ -26,7 +26,7 @@
 #include <algorithm>
 #include <typeinfo> 
 
-namespace xml
+namespace xmlmm
 {
 //------------------------------------------------------------------------------
     Element::Element(xmlNode* const cobj)

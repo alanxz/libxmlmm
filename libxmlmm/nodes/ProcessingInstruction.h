@@ -24,7 +24,7 @@
 #include "libxmlmm/defines.h"
 #include "libxmlmm/nodes/Content.h"
 
-namespace xml
+namespace xmlmm
 {
     /**
      * XML Processing Instruction Node Wrapper

@@ -21,7 +21,7 @@
 #include "Content.h"
 #include "libxmlmm/utils.h"
 
-namespace xml
+namespace xmlmm
 {
 //------------------------------------------------------------------------------
     Content::Content(xmlNode* cobj) 

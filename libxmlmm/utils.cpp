@@ -33,7 +33,7 @@
 #include <iterator>
 #include <libxml/xmlerror.h>
 
-namespace xml
+namespace xmlmm
 {
 //------------------------------------------------------------------------------
     std::string get_last_error()

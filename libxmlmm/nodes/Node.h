@@ -30,7 +30,7 @@
 #include <libxml/xpath.h>
 
 
-namespace xml
+namespace xmlmm
 {
     class Element;
 

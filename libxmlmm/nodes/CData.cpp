@@ -20,7 +20,7 @@
 
 #include "CData.h"
 
-namespace xml
+namespace xmlmm
 {
 //------------------------------------------------------------------------------
     CData::CData(xmlNode* const cobj)

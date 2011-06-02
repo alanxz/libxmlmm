@@ -25,7 +25,7 @@
 #include <libxml/tree.h>
 
 
-namespace xml
+namespace xmlmm
 {
 //------------------------------------------------------------------------------
     Document::Document()

@@ -29,7 +29,7 @@
 #include <libxml/tree.h>
 
 
-namespace xml
+namespace xmlmm
 {
     unsigned int LibXmlSentry::use_count = 0;
 

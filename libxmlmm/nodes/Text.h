@@ -25,7 +25,7 @@
 #include "libxmlmm/nodes/Content.h"
 
 
-namespace xml
+namespace xmlmm
 {
     /**
      * XML Text Node Wrapper

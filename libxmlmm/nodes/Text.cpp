@@ -20,7 +20,7 @@
 
 #include "Text.h"
 
-namespace xml
+namespace xmlmm
 {
 //------------------------------------------------------------------------------
     Text::Text(xmlNode* const cobj)

@@ -20,7 +20,7 @@
 
 #include "Comment.h"
 
-namespace xml
+namespace xmlmm
 {
 //------------------------------------------------------------------------------
     Comment::Comment(xmlNode* const cobj)

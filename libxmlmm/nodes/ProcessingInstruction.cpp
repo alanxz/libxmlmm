@@ -20,7 +20,7 @@
 
 #include "ProcessingInstruction.h"
 
-namespace xml
+namespace xmlmm
 {
 //------------------------------------------------------------------------------
     ProcessingInstruction::ProcessingInstruction(xmlNode* const cobj)
