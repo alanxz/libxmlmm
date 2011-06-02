@@ -30,163 +30,163 @@
 
 namespace xmlmm
 {
+  /**
+  * XML Element Wrapper
+  **/    
+  class LIBXMLMM_EXPORT Element : public Node
+  {
+  public: 
+    /** 
+    * Construct the Wrapper
+    **/
+    explicit Element(xmlNode* const cobj);
+
     /**
-     * XML Element Wrapper
-     **/    
-    class LIBXMLMM_EXPORT Element : public Node
+    * Get the node's name.  Empty if not found.
+    **/
+    std::string get_name() const;
+
+    /**
+    * Set a node's name.
+    **/
+    void set_name(const std::string& value);
+
+    /**
+    * Check if a given attribute exists.
+    **/
+    bool has_attribute(const std::string& key) const;
+
+    /** 
+    * Get a given attribute. 
+    *         
+    * This method will retrive an attribute.
+    *
+    * @param id the attribtue id
+    * @return the attribute value
+    *
+    * @throws no_such_attribute if the attibute does not exist on
+    * this element.
+    **/
+    std::string get_attribute(const std::string& key) const;
+
+    /**
+    * Get a given attribute in given type.
+    *
+    * This method will retrive an attribute and try to convert it
+    * to the given type with the help of stream operators.
+    *
+    * @param id the attribtue id
+    * @return the attribute value
+    *
+    * @throws no_such_attribute if the attibute does not exist on
+    * this element.
+    *
+    * @todo add check if conversion to value worked
+    **/
+    template <typename T>
+    T get_attribute(const std::string& id) const
     {
-    public: 
-        /** 
-         * Construct the Wrapper
-         **/
-        explicit Element(xmlNode* const cobj);
-        
-        /**
-         * Get the node's name.  Empty if not found.
-         **/
-        std::string get_name() const;
+      std::stringstream conv(get_attribute(id));
 
-        /**
-         * Set a node's name.
-         **/
-        void set_name(const std::string& value);
-        
-        /**
-         * Check if a given attribute exists.
-         **/
-        bool has_attribute(const std::string& key) const;
-        
-        /** 
-         * Get a given attribute. 
-         *         
-         * This method will retrive an attribute.
-         *
-         * @param id the attribtue id
-         * @return the attribute value
-         *
-         * @throws no_such_attribute if the attibute does not exist on
-         * this element.
-         **/
-        std::string get_attribute(const std::string& key) const;
-        
-        /**
-         * Get a given attribute in given type.
-         *
-         * This method will retrive an attribute and try to convert it
-         * to the given type with the help of stream operators.
-         *
-         * @param id the attribtue id
-         * @return the attribute value
-         *
-         * @throws no_such_attribute if the attibute does not exist on
-         * this element.
-         *
-         * @todo add check if conversion to value worked
-         **/
-        template <typename T>
-        T get_attribute(const std::string& id) const
-        {
-            std::stringstream conv(get_attribute(id));
-            
-            T value;
-            conv >> value;
-            
-            return value;
-        }
-        
-        /**
-         * Set an attribute.
-         **/
-        void set_attribute(const std::string& id, const std::string& value);
-               
-        /**
-         * Set an attribute with generic type.
-         **/
-        template <typename T>
-        void set_attribute(const std::string& id, T value)
-        {
-            std::stringstream conv;
-            conv << value;
-            set_attribute(id, conv.str());
-        }
-        
-        /**
-         * Remove a given attribute.
-         **/
-        void remove_attribute(const std::string& key);
-        
-        /**
-         * Get the value of this node.  Empty if not found.
-         **/
-        virtual std::string get_value() const;
-        
-        /**
-         * Get the element's text.  Empty if not found.
-         * Deprecated. Use get_value().
-         **/
-        std::string get_text() const
-        { return this->get_value(); }
+      T value;
+      conv >> value;
 
-        /**
-         * Get the element's text node.
-         **/
-        Content* get_text_node() const;
-        
-        /**
-         * Set the 
-         **/
-        void set_text(const std::string& text);
-        
-        /**
-         * Add/append text to this element.
-         **/
-        void add_text(const std::string& text);
-        
-        /**
-         * Add a element.
-         **/
-        Element* add_element(const std::string& name);
-        
-        /**
-         * Get all children of this element.
-         *
-         * @return All children of this element. 
-         **/
-        std::vector<Node*> get_children();
+      return value;
+    }
 
-        /**
-         * Get all children of this element.
-         *
-         * @return All children of this element. 
-         **/
-        std::vector<const Node*> get_children() const;
+    /**
+    * Set an attribute.
+    **/
+    void set_attribute(const std::string& id, const std::string& value);
 
-        /**
-         * Find a given element.
-         *
-         * @param xpath the xpath relative to this element
-         * @return the element found
-         *
-         * @{
-         **/
-        Element* find_element(const std::string& xpath);
-        const Element* find_element(const std::string& xpath) const;
-        /** @} **/
-        
-        /**
-         * Find a given set of elements.
-         *
-         * @param xpath the xpath relative to this element
-         * @return the elements found
-         *
-         * @{
-         **/
-        std::vector<Element*> find_elements(const std::string& xpath);
-        std::vector<const Element*> find_elements(const std::string& xpath) const;
-        /** @} **/  
-        
-    private:             
-        
-    };    
+    /**
+    * Set an attribute with generic type.
+    **/
+    template <typename T>
+    void set_attribute(const std::string& id, T value)
+    {
+      std::stringstream conv;
+      conv << value;
+      set_attribute(id, conv.str());
+    }
+
+    /**
+    * Remove a given attribute.
+    **/
+    void remove_attribute(const std::string& key);
+
+    /**
+    * Get the value of this node.  Empty if not found.
+    **/
+    virtual std::string get_value() const;
+
+    /**
+    * Get the element's text.  Empty if not found.
+    * Deprecated. Use get_value().
+    **/
+    std::string get_text() const
+    { return this->get_value(); }
+
+    /**
+    * Get the element's text node.
+    **/
+    Content* get_text_node() const;
+
+    /**
+    * Set the 
+    **/
+    void set_text(const std::string& text);
+
+    /**
+    * Add/append text to this element.
+    **/
+    void add_text(const std::string& text);
+
+    /**
+    * Add a element.
+    **/
+    Element* add_element(const std::string& name);
+
+    /**
+    * Get all children of this element.
+    *
+    * @return All children of this element. 
+    **/
+    std::vector<Node*> get_children();
+
+    /**
+    * Get all children of this element.
+    *
+    * @return All children of this element. 
+    **/
+    std::vector<const Node*> get_children() const;
+
+    /**
+    * Find a given element.
+    *
+    * @param xpath the xpath relative to this element
+    * @return the element found
+    *
+    * @{
+    **/
+    Element* find_element(const std::string& xpath);
+    const Element* find_element(const std::string& xpath) const;
+    /** @} **/
+
+    /**
+    * Find a given set of elements.
+    *
+    * @param xpath the xpath relative to this element
+    * @return the elements found
+    *
+    * @{
+    **/
+    std::vector<Element*> find_elements(const std::string& xpath);
+    std::vector<const Element*> find_elements(const std::string& xpath) const;
+    /** @} **/  
+
+  private:             
+
+  };    
 }
 #endif // _LIBXMLMM_ELEMENT_H_INCLUDED_

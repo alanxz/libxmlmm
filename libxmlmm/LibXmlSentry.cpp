@@ -31,29 +31,29 @@
 
 namespace xmlmm
 {
-    unsigned int LibXmlSentry::use_count = 0;
+  unsigned int LibXmlSentry::use_count = 0;
 
-//------------------------------------------------------------------------------
-    LibXmlSentry::LibXmlSentry()
+  //------------------------------------------------------------------------------
+  LibXmlSentry::LibXmlSentry()
+  {
+    if (use_count == 0)
     {
-        if (use_count == 0)
-        {
-            xmlInitParser();
-            xmlRegisterNodeDefault(wrap_node);
-            xmlDeregisterNodeDefault(free_wrapper);
-            xmlThrDefRegisterNodeDefault(wrap_node);
-            xmlThrDefDeregisterNodeDefault(free_wrapper);
-        }
-        use_count++;
+      xmlInitParser();
+      xmlRegisterNodeDefault(wrap_node);
+      xmlDeregisterNodeDefault(free_wrapper);
+      xmlThrDefRegisterNodeDefault(wrap_node);
+      xmlThrDefDeregisterNodeDefault(free_wrapper);
     }
-        
-//------------------------------------------------------------------------------
-    LibXmlSentry::~LibXmlSentry()
+    use_count++;
+  }
+
+  //------------------------------------------------------------------------------
+  LibXmlSentry::~LibXmlSentry()
+  {
+    use_count--;
+    if (use_count == 0)
     {
-        use_count--;
-        if (use_count == 0)
-        {
-            xmlCleanupParser();
-        }
+      xmlCleanupParser();
     }
+  }
 }

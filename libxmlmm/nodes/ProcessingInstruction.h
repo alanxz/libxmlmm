@@ -26,17 +26,17 @@
 
 namespace xmlmm
 {
+  /**
+  * XML Processing Instruction Node Wrapper
+  **/    
+  class LIBXMLMM_EXPORT ProcessingInstruction : public Content
+  {
+  public:
     /**
-     * XML Processing Instruction Node Wrapper
-     **/    
-    class LIBXMLMM_EXPORT ProcessingInstruction : public Content
-    {
-    public:
-        /**
-         * Construct Wrapper
-         **/
-        explicit ProcessingInstruction(xmlNode* const cobj);
-        
-    };    
+    * Construct Wrapper
+    **/
+    explicit ProcessingInstruction(xmlNode* const cobj);
+
+  };    
 }
 #endif // _LIBXMLMM_PROCESSINGINSTRUCTION_H_INCLUDED_

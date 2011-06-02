@@ -36,106 +36,106 @@
 
 namespace xmlmm
 {
-//------------------------------------------------------------------------------
-    std::string get_last_error()
+  //------------------------------------------------------------------------------
+  std::string get_last_error()
+  {
+    const xmlError* const error = xmlGetLastError();
+    if (error != NULL)
     {
-        const xmlError* const error = xmlGetLastError();
-        if (error != NULL)
-        {
-            return error->message;
-        }
-        else
-        {
-            return "";
-        }
+      return error->message;
     }
+    else
+    {
+      return "";
+    }
+  }
 
-//------------------------------------------------------------------------------    
-    void wrap_node(xmlNode* const cobj)
+  //------------------------------------------------------------------------------    
+  void wrap_node(xmlNode* const cobj)
+  {
+    switch (cobj->type)
     {
-        switch (cobj->type)
-        {
-            case XML_ELEMENT_NODE:
-            {
-                cobj->_private = new Element(cobj);
-                break;
-            }
-            case XML_TEXT_NODE:
-            {
-                cobj->_private = new Text(cobj);
-                break;
-            }
-            case XML_COMMENT_NODE:
-            {
-                cobj->_private = new Comment(cobj);
-                break;
-            }
-            case XML_CDATA_SECTION_NODE:
-            {
-                cobj->_private = new CData(cobj);
-                break;
-            }
-            case XML_PI_NODE:
-            {
-                cobj->_private = new ProcessingInstruction(cobj);
-                break;
-            }
-            case XML_ATTRIBUTE_NODE:
-            {
-                cobj->_private = new Attribute(cobj);
-                break;    
-            }
-            case XML_DOCUMENT_NODE:
-            {
-                /* this node is not wrapped */
-                break;
-            }
-            default:
-            {
-                break;
-            }
-        }
+    case XML_ELEMENT_NODE:
+      {
+        cobj->_private = new Element(cobj);
+        break;
+      }
+    case XML_TEXT_NODE:
+      {
+        cobj->_private = new Text(cobj);
+        break;
+      }
+    case XML_COMMENT_NODE:
+      {
+        cobj->_private = new Comment(cobj);
+        break;
+      }
+    case XML_CDATA_SECTION_NODE:
+      {
+        cobj->_private = new CData(cobj);
+        break;
+      }
+    case XML_PI_NODE:
+      {
+        cobj->_private = new ProcessingInstruction(cobj);
+        break;
+      }
+    case XML_ATTRIBUTE_NODE:
+      {
+        cobj->_private = new Attribute(cobj);
+        break;    
+      }
+    case XML_DOCUMENT_NODE:
+      {
+        /* this node is not wrapped */
+        break;
+      }
+    default:
+      {
+        break;
+      }
     }
+  }
 
-//------------------------------------------------------------------------------    
-    void free_wrapper(xmlNode* const cobj)
+  //------------------------------------------------------------------------------    
+  void free_wrapper(xmlNode* const cobj)
+  {
+    switch (cobj->type)
     {
-        switch (cobj->type)
-        {
-            case XML_ELEMENT_NODE:
-            case XML_TEXT_NODE:
-            case XML_COMMENT_NODE:
-            case XML_CDATA_SECTION_NODE:
-            case XML_PI_NODE:
-            case XML_ATTRIBUTE_NODE:
-            {
-                Node* const node = reinterpret_cast<Node* const>(cobj->_private);
-                delete node;
-                cobj->_private = NULL;
-                break;
-            }                        
-            case XML_DOCUMENT_NODE:
-            {
-                /* there nodes are not wrapped */
-                break;
-            }
-            default:
-            {
-                break;
-            }
-        }
+    case XML_ELEMENT_NODE:
+    case XML_TEXT_NODE:
+    case XML_COMMENT_NODE:
+    case XML_CDATA_SECTION_NODE:
+    case XML_PI_NODE:
+    case XML_ATTRIBUTE_NODE:
+      {
+        Node* const node = reinterpret_cast<Node* const>(cobj->_private);
+        delete node;
+        cobj->_private = NULL;
+        break;
+      }                        
+    case XML_DOCUMENT_NODE:
+      {
+        /* there nodes are not wrapped */
+        break;
+      }
+    default:
+      {
+        break;
+      }
     }
+  }
 
-//------------------------------------------------------------------------------        
-    std::string read_until_eof(std::istream& is)
-    {
-        std::string result;
-        const std::ios_base::fmtflags saved = is.flags();
-        is.unsetf(std::ios::skipws);
-        std::copy(std::istream_iterator<char>(is),
-                  std::istream_iterator<char>(),
-                  std::back_inserter(result));
-        is.flags(saved);
-        return result;
-    }
+  //------------------------------------------------------------------------------        
+  std::string read_until_eof(std::istream& is)
+  {
+    std::string result;
+    const std::ios_base::fmtflags saved = is.flags();
+    is.unsetf(std::ios::skipws);
+    std::copy(std::istream_iterator<char>(is),
+      std::istream_iterator<char>(),
+      std::back_inserter(result));
+    is.flags(saved);
+    return result;
+  }
 }

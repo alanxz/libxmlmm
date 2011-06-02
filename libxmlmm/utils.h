@@ -34,52 +34,52 @@ extern "C"
 
 namespace xmlmm
 {    
-    /**
-     * Get the last error as string from libxml.
-     **/
-    LIBXMLMM_EXPORT std::string get_last_error();
-    
-    /**
-     * Wrap a node.
-     *
-     * @note This function is used as callback to libxml.
-     **/
-    LIBXMLMM_EXPORT void wrap_node(_xmlNode* const node);
-    
-    /**
-     * Free the wrapper of a node.
-     *
-     * @note This function is used as callback to libxml.
-     **/
-    LIBXMLMM_EXPORT void free_wrapper(_xmlNode* node);
-    
-    /** Read from a stream until EOF. **/    
-    LIBXMLMM_EXPORT std::string read_until_eof(std::istream& is);
-    
-    /**
-     * Convert arbitrary value to string.
-     **/
-    // TODO: shouldn't this be "const T&" to avoid copy?  consider when this
-    // is a complex object.
-    template <typename T>
-    std::string to_string(T value)
-    {
-        std::stringstream buff;
-        buff << value;
-        return buff.str();
-    }
-    
-    /**
-     * Convert arbitrary value from string.
-     **/
-    template <typename T>
-    T from_string(const std::string& str)
-    {
-        std::stringstream buff(str);
-        T value;
-        buff >> value;
-        return value;
-    }
+  /**
+  * Get the last error as string from libxml.
+  **/
+  LIBXMLMM_EXPORT std::string get_last_error();
+
+  /**
+  * Wrap a node.
+  *
+  * @note This function is used as callback to libxml.
+  **/
+  LIBXMLMM_EXPORT void wrap_node(_xmlNode* const node);
+
+  /**
+  * Free the wrapper of a node.
+  *
+  * @note This function is used as callback to libxml.
+  **/
+  LIBXMLMM_EXPORT void free_wrapper(_xmlNode* node);
+
+  /** Read from a stream until EOF. **/    
+  LIBXMLMM_EXPORT std::string read_until_eof(std::istream& is);
+
+  /**
+  * Convert arbitrary value to string.
+  **/
+  // TODO: shouldn't this be "const T&" to avoid copy?  consider when this
+  // is a complex object.
+  template <typename T>
+  std::string to_string(T value)
+  {
+    std::stringstream buff;
+    buff << value;
+    return buff.str();
+  }
+
+  /**
+  * Convert arbitrary value from string.
+  **/
+  template <typename T>
+  T from_string(const std::string& str)
+  {
+    std::stringstream buff(str);
+    T value;
+    buff >> value;
+    return value;
+  }
 }
 
 #endif

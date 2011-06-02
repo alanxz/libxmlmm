@@ -23,24 +23,24 @@
 
 namespace xmlmm
 {
-//------------------------------------------------------------------------------
-    Attribute::Attribute(xmlNode* const cobj)
+  //------------------------------------------------------------------------------
+  Attribute::Attribute(xmlNode* const cobj)
     : Node(cobj) {}
-    
-//------------------------------------------------------------------------------
-    std::string Attribute::get_value() const
+
+  //------------------------------------------------------------------------------
+  std::string Attribute::get_value() const
+  {
+    const char *const ptr = reinterpret_cast<const char*>(xmlGetProp(cobj->parent, cobj->name));
+    if (ptr)
     {
-        const char *const ptr = reinterpret_cast<const char*>(xmlGetProp(cobj->parent, cobj->name));
-        if (ptr)
-        {
-            return ptr;
-        }
-        return "";
+      return ptr;
     }
-        
-//------------------------------------------------------------------------------
-    void Attribute::set_value(const std::string& value)
-    {
-        xmlSetProp(cobj->parent, cobj->name, reinterpret_cast<const xmlChar*>(value.c_str()));
-    }
+    return "";
+  }
+
+  //------------------------------------------------------------------------------
+  void Attribute::set_value(const std::string& value)
+  {
+    xmlSetProp(cobj->parent, cobj->name, reinterpret_cast<const xmlChar*>(value.c_str()));
+  }
 }

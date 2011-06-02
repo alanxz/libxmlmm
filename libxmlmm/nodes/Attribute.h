@@ -28,26 +28,26 @@
 
 namespace xmlmm
 {
+  /**
+  * XML Attribtue Node Wrapper
+  **/    
+  class LIBXMLMM_EXPORT Attribute : public Node
+  {
+  public:
     /**
-     * XML Attribtue Node Wrapper
-     **/    
-    class LIBXMLMM_EXPORT Attribute : public Node
-    {
-    public:
-        /**
-         * Construct Wrapper
-         **/
-        explicit Attribute(xmlNode* const cobj);
-        
-        /**
-         * Get the value of this node.  Empty if not found.
-         **/         
-        virtual std::string get_value() const;
-        
-        /**
-         * Set the value.
-         **/
-        void set_value(const std::string& value);
-    };    
+    * Construct Wrapper
+    **/
+    explicit Attribute(xmlNode* const cobj);
+
+    /**
+    * Get the value of this node.  Empty if not found.
+    **/         
+    virtual std::string get_value() const;
+
+    /**
+    * Set the value.
+    **/
+    void set_value(const std::string& value);
+  };    
 }
 #endif // _LIBXMLMM_ATTRIBUTE_H_INCLUDED_

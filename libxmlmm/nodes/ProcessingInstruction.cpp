@@ -22,8 +22,8 @@
 
 namespace xmlmm
 {
-//------------------------------------------------------------------------------
-    ProcessingInstruction::ProcessingInstruction(xmlNode* const cobj)
+  //------------------------------------------------------------------------------
+  ProcessingInstruction::ProcessingInstruction(xmlNode* const cobj)
     : Content(cobj) {}
 
 }

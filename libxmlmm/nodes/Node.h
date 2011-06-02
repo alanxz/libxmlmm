@@ -34,116 +34,116 @@ extern "C"
 
 namespace xmlmm
 {
-    class Element;
+  class Element;
+
+  /**
+  * XML DOM Node
+  *
+  * The Node class is the base class for all DOM elements (except Document). 
+  * It is effectively a wrapper for xmlNode.
+  **/    
+  class LIBXMLMM_EXPORT Node
+  {
+  protected:
+    /**
+    * Construct Wrapper
+    *
+    * @param cobj The xmlNode object to wrap.
+    **/
+    explicit Node(_xmlNode* const cobj);
+
+  public:
+    /**
+    * Destructor
+    **/
+    virtual ~Node();       
 
     /**
-     * XML DOM Node
-     *
-     * The Node class is the base class for all DOM elements (except Document). 
-     * It is effectively a wrapper for xmlNode.
-     **/    
-    class LIBXMLMM_EXPORT Node
-    {
-    protected:
-        /**
-         * Construct Wrapper
-         *
-         * @param cobj The xmlNode object to wrap.
-         **/
-        explicit Node(_xmlNode* const cobj);
-        
-    public:
-        /**
-         * Destructor
-         **/
-        virtual ~Node();       
-        
-        /**
-         * Get the node's path
-         **/
-        std::string get_path() const;
+    * Get the node's path
+    **/
+    std::string get_path() const;
 
-        /**
-         * Get the node's parent.
-         *
-         * @return The node's parent.
-         *
-         * @throw exception If the node has no parent node.
-         *
-         * @note It is safe to assume that all nodes have a parent. If this
-         * is not the case something is really broken.
-         **/
-        Element* get_parent(); 
-        
-        /**
-         * Get the node's parent.
-         *
-         * @return The node's parent.
-         *
-         * @throw exception If the node has no parent node, exception is
-         * raised.
-         *
-         * @note It is safe to assume that all nodes have a parent. If this
-         * is not the case something is really broken.
-         **/
-        const Element* get_parent() const;  
-        
-        /**
-         * Find a given node.
-         *
-         * @param xpath the xpath relative to this node
-         * @return the node found
-         *
-         * @{
-         **/
-        Node* find_node(const std::string& xpath);
-        const Node* find_node(const std::string& xpath) const;
-        /** @} **/
-        
-        /**
-         * Find a set of nodes.
-         *
-         * @param xpath the xpath relative to this node
-         * @return the nodes found
-         *
-         * @{
-         **/
-        std::vector<Node*> find_nodes(const std::string& xpath);
-        std::vector<const Node*> find_nodes(const std::string& xpath) const;
-        /** @} **/
-        
-        /**
-         * Query a value.
-         *
-         * @param xpath the xpath
-         * @return the value
-         *
-         * @{
-         **/
-        std::string query_string(const std::string& xpath) const;
-        double query_number(const std::string& xpath) const;
-        /** @} **/
-    
-        /**
-         * Get the value of this node.  Empty if not found.
-         **/
-        virtual std::string get_value() const = 0;
+    /**
+    * Get the node's parent.
+    *
+    * @return The node's parent.
+    *
+    * @throw exception If the node has no parent node.
+    *
+    * @note It is safe to assume that all nodes have a parent. If this
+    * is not the case something is really broken.
+    **/
+    Element* get_parent(); 
 
-    protected:    
-        /** The wrapped xmlNode object. **/
-        _xmlNode* cobj;
+    /**
+    * Get the node's parent.
+    *
+    * @return The node's parent.
+    *
+    * @throw exception If the node has no parent node, exception is
+    * raised.
+    *
+    * @note It is safe to assume that all nodes have a parent. If this
+    * is not the case something is really broken.
+    **/
+    const Element* get_parent() const;  
 
-        template <typename NodeType_>
-        NodeType_ find(const std::string &xpath) const;
+    /**
+    * Find a given node.
+    *
+    * @param xpath the xpath relative to this node
+    * @return the node found
+    *
+    * @{
+    **/
+    Node* find_node(const std::string& xpath);
+    const Node* find_node(const std::string& xpath) const;
+    /** @} **/
 
-        template <typename NodeType_>
-        std::vector<NodeType_> find_all(const std::string &xpath) const;
-    
-    private:
-        Node(const Node&);
-        Node& operator = (const Node&);
+    /**
+    * Find a set of nodes.
+    *
+    * @param xpath the xpath relative to this node
+    * @return the nodes found
+    *
+    * @{
+    **/
+    std::vector<Node*> find_nodes(const std::string& xpath);
+    std::vector<const Node*> find_nodes(const std::string& xpath) const;
+    /** @} **/
 
-    };    
+    /**
+    * Query a value.
+    *
+    * @param xpath the xpath
+    * @return the value
+    *
+    * @{
+    **/
+    std::string query_string(const std::string& xpath) const;
+    double query_number(const std::string& xpath) const;
+    /** @} **/
+
+    /**
+    * Get the value of this node.  Empty if not found.
+    **/
+    virtual std::string get_value() const = 0;
+
+  protected:    
+    /** The wrapped xmlNode object. **/
+    _xmlNode* cobj;
+
+    template <typename NodeType_>
+    NodeType_ find(const std::string &xpath) const;
+
+    template <typename NodeType_>
+    std::vector<NodeType_> find_all(const std::string &xpath) const;
+
+  private:
+    Node(const Node&);
+    Node& operator = (const Node&);
+
+  };    
 
 } // namespace xmlmm
 

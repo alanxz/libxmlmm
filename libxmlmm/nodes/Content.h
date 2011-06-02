@@ -28,38 +28,38 @@
 
 namespace xmlmm
 {
+  /**
+  * XML Text Node Wrapper
+  **/    
+  class LIBXMLMM_EXPORT Content : public Node
+  {
+  public:
     /**
-     * XML Text Node Wrapper
-     **/    
-    class LIBXMLMM_EXPORT Content : public Node
-    {
-    public:
-        /**
-         * Construct Wrapper
-         **/
-        explicit Content(xmlNode* const cobj);
-        
-        /**
-         * Get the value of this node.  Empty if not found.
-         **/
-        virtual std::string get_value() const;
+    * Construct Wrapper
+    **/
+    explicit Content(xmlNode* const cobj);
 
-        /**
-         * Get the content of a content node.  Empty if none.
-         * @deprecated Use get_value().
-         **/
-        std::string get_content() const
-        { return this->get_value(); }
-        
-        /**
-         * Set the content of a content node.
-         **/
-        void set_content(const std::string& value);
-        
-        /**
-         * Check if a given note is a blank node.
-         **/
-        bool is_blank() const;        
-    };    
+    /**
+    * Get the value of this node.  Empty if not found.
+    **/
+    virtual std::string get_value() const;
+
+    /**
+    * Get the content of a content node.  Empty if none.
+    * @deprecated Use get_value().
+    **/
+    std::string get_content() const
+    { return this->get_value(); }
+
+    /**
+    * Set the content of a content node.
+    **/
+    void set_content(const std::string& value);
+
+    /**
+    * Check if a given note is a blank node.
+    **/
+    bool is_blank() const;        
+  };    
 }
 #endif // _LIBXMLMM_CONTENT_H_INCLUDED_

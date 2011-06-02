@@ -32,38 +32,38 @@
 
 namespace xmlmm
 {
-    struct LIBXMLMM_EXPORT exception : std::runtime_error
-    {
-        explicit exception(const std::string &what)
-            : runtime_error("xmlmm: " + what) {}
-        ~exception() throw() {}
-    };
+  struct LIBXMLMM_EXPORT exception : std::runtime_error
+  {
+    explicit exception(const std::string &what)
+      : runtime_error("xmlmm: " + what) {}
+    ~exception() throw() {}
+  };
 
-    struct LIBXMLMM_EXPORT NoRootElement : exception
-    {
-        NoRootElement() : exception("No root element") {}
-    };
+  struct LIBXMLMM_EXPORT NoRootElement : exception
+  {
+    NoRootElement() : exception("No root element") {}
+  };
 
-    struct LIBXMLMM_EXPORT EmptyDocument : exception
-    {
-        EmptyDocument() : exception("Document is empty") {}
-    };
+  struct LIBXMLMM_EXPORT EmptyDocument : exception
+  {
+    EmptyDocument() : exception("Document is empty") {}
+  };
 
-    struct LIBXMLMM_EXPORT InvalidXPath : exception
-    {
-        explicit InvalidXPath(const std::string &xpath)
-            : exception("Invalid XPath: " + xpath) {}
-        ~InvalidXPath() throw() {}
-    };
+  struct LIBXMLMM_EXPORT InvalidXPath : exception
+  {
+    explicit InvalidXPath(const std::string &xpath)
+      : exception("Invalid XPath: " + xpath) {}
+    ~InvalidXPath() throw() {}
+  };
 
-    struct LIBXMLMM_EXPORT NoSuchAttribute : exception
-    {
-        NoSuchAttribute(const std::string &attribute,
-                        const std::string &nodeName)
-            : exception("There is no attribute '" + attribute +
-                        "' on the element '" + nodeName + "'.") {}
-        ~NoSuchAttribute() throw() {}
-    };
+  struct LIBXMLMM_EXPORT NoSuchAttribute : exception
+  {
+    NoSuchAttribute(const std::string &attribute,
+      const std::string &nodeName)
+      : exception("There is no attribute '" + attribute +
+      "' on the element '" + nodeName + "'.") {}
+    ~NoSuchAttribute() throw() {}
+  };
 }
 
 #ifdef _MSC_VER

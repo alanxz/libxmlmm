@@ -26,17 +26,17 @@
 
 namespace xmlmm
 {
+  /**
+  * CData Node
+  **/    
+  class LIBXMLMM_EXPORT CData : public Content
+  {
+  public:
     /**
-     * CData Node
-     **/    
-    class LIBXMLMM_EXPORT CData : public Content
-    {
-    public:
-        /**
-         * Construct Wrapper
-         **/
-        explicit CData(xmlNode* const cobj);
-        
-    };    
+    * Construct Wrapper
+    **/
+    explicit CData(xmlNode* const cobj);
+
+  };    
 }
 #endif // _LIBXMLMM_CDATA_H_INCLUDED_

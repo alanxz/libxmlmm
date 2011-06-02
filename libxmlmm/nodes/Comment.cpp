@@ -22,8 +22,8 @@
 
 namespace xmlmm
 {
-//------------------------------------------------------------------------------
-    Comment::Comment(xmlNode* const cobj)
+  //------------------------------------------------------------------------------
+  Comment::Comment(xmlNode* const cobj)
     : Content(cobj) {}
 
 }

@@ -26,17 +26,17 @@
 
 namespace xmlmm
 {
+  /**
+  * XML Comment Node Wrapper
+  **/    
+  class LIBXMLMM_EXPORT Comment : public Content
+  {
+  public:
     /**
-     * XML Comment Node Wrapper
-     **/    
-    class LIBXMLMM_EXPORT Comment : public Content
-    {
-    public:
-        /**
-         * Construct Wrapper
-         **/
-        explicit Comment(xmlNode* const cobj);
-        
-    };    
+    * Construct Wrapper
+    **/
+    explicit Comment(xmlNode* const cobj);
+
+  };    
 }
 #endif // _LIBXMLMM_COMMENT_H_INCLUDED_

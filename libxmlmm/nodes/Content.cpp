@@ -23,30 +23,30 @@
 
 namespace xmlmm
 {
-//------------------------------------------------------------------------------
-    Content::Content(xmlNode* cobj) 
+  //------------------------------------------------------------------------------
+  Content::Content(xmlNode* cobj) 
     : Node(cobj) {}
-    
-//------------------------------------------------------------------------------
-    std::string Content::get_value() const
+
+  //------------------------------------------------------------------------------
+  std::string Content::get_value() const
+  {
+    if (cobj->content != NULL)
     {
-        if (cobj->content != NULL)
-        {
-            return reinterpret_cast<const char*>(cobj->content);
-        }
-        return "";
+      return reinterpret_cast<const char*>(cobj->content);
     }
-    
-//------------------------------------------------------------------------------
-    void Content::set_content(const std::string& value) 
-    {
-        xmlNodeSetContent(cobj, reinterpret_cast<const xmlChar*>(value.c_str()));
-    }
-    
-//------------------------------------------------------------------------------
-    bool Content::is_blank() const 
-    {
-        return (0 != xmlIsBlankNode(const_cast<xmlNode*>(cobj)));
-    }
+    return "";
+  }
+
+  //------------------------------------------------------------------------------
+  void Content::set_content(const std::string& value) 
+  {
+    xmlNodeSetContent(cobj, reinterpret_cast<const xmlChar*>(value.c_str()));
+  }
+
+  //------------------------------------------------------------------------------
+  bool Content::is_blank() const 
+  {
+    return (0 != xmlIsBlankNode(const_cast<xmlNode*>(cobj)));
+  }
 
 }

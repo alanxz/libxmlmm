@@ -6,38 +6,38 @@
 
 namespace xmlmm
 {
-namespace impl
-{
-
-  find_nodeset::find_nodeset(xmlNode *const cobj,
-    const std::string &xpath,
-    const xmlXPathObjectType type)
+  namespace impl
   {
-    ctxt = xmlXPathNewContext(cobj->doc);
-    ctxt->node = cobj;
 
-    result = xmlXPathEval(reinterpret_cast<const xmlChar*>(xpath.c_str()), ctxt);
-    if (!result)
+    find_nodeset::find_nodeset(xmlNode *const cobj,
+      const std::string &xpath,
+      const xmlXPathObjectType type)
     {
-      xmlXPathFreeContext(ctxt);
-      throw InvalidXPath(xpath);
+      ctxt = xmlXPathNewContext(cobj->doc);
+      ctxt->node = cobj;
+
+      result = xmlXPathEval(reinterpret_cast<const xmlChar*>(xpath.c_str()), ctxt);
+      if (!result)
+      {
+        xmlXPathFreeContext(ctxt);
+        throw InvalidXPath(xpath);
+      }
+
+      if (type != XPATH_UNDEFINED && result->type != type)
+      {
+        xmlXPathFreeObject(result);
+        xmlXPathFreeContext(ctxt);
+        throw exception("Unsuported query.");
+      }
     }
 
-    if (type != XPATH_UNDEFINED && result->type != type)
+    //------------------------------------------------------------------------------
+
+    find_nodeset::~find_nodeset()
     {
       xmlXPathFreeObject(result);
       xmlXPathFreeContext(ctxt);
-      throw exception("Unsuported query.");
     }
-  }
 
-  //------------------------------------------------------------------------------
-
-  find_nodeset::~find_nodeset()
-  {
-    xmlXPathFreeObject(result);
-    xmlXPathFreeContext(ctxt);
-  }
-
-} // namespace impl
+  } // namespace impl
 } // namespace xmlmm

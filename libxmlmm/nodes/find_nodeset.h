@@ -8,28 +8,28 @@
 
 namespace xmlmm
 {
-namespace impl
-{
+  namespace impl
+  {
 
-  // Helper object to keep our xpath search context.
-  struct find_nodeset {
-    find_nodeset(xmlNode *const cobj,
-      const std::string &xpath,
-      const xmlXPathObjectType type = XPATH_UNDEFINED);
-    ~find_nodeset();
+    // Helper object to keep our xpath search context.
+    struct find_nodeset {
+      find_nodeset(xmlNode *const cobj,
+        const std::string &xpath,
+        const xmlXPathObjectType type = XPATH_UNDEFINED);
+      ~find_nodeset();
 
-    operator xmlXPathObject *()
-    { return result; }
+      operator xmlXPathObject *()
+      { return result; }
 
-    operator xmlNodeSet *()
-    { return result->nodesetval; }
+      operator xmlNodeSet *()
+      { return result->nodesetval; }
 
-  private:
-    xmlXPathContext* ctxt;
-    xmlXPathObject* result;
-  };
+    private:
+      xmlXPathContext* ctxt;
+      xmlXPathObject* result;
+    };
 
-} // namespace impl
+  } // namespace impl
 } // namespace xmlmm
 
 #endif //FIND_NODESET_H_INCLUDED_

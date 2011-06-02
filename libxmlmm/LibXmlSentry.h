@@ -28,38 +28,38 @@
 
 namespace xmlmm
 {
+  /**
+  * Manages libxml's initialisation and cleanup.
+  *
+  * @note This class is an internal helper class that manages libxml's 
+  * initialisation and cleanup. 
+  *
+  * @note Multiple instances of LibXmlSentry can live side by side, libxml
+  * will only be initialized once.
+  **/
+  class LibXmlSentry
+  {
+  public:
+    /** 
+    * Initialize libxml and register callback functions for construction
+    * and destruction of wrappers.
+    *
+    * @todo Review if xmlInitParser() is used as intended.s
+    **/
+    LibXmlSentry();
+
     /**
-     * Manages libxml's initialisation and cleanup.
-     *
-     * @note This class is an internal helper class that manages libxml's 
-     * initialisation and cleanup. 
-     *
-     * @note Multiple instances of LibXmlSentry can live side by side, libxml
-     * will only be initialized once.
-     **/
-    class LibXmlSentry
-    {
-    public:
-        /** 
-         * Initialize libxml and register callback functions for construction
-         * and destruction of wrappers.
-         *
-         * @todo Review if xmlInitParser() is used as intended.s
-         **/
-        LibXmlSentry();
-        
-        /**
-         * Clean up libxml.
-         **/
-        ~LibXmlSentry();
-    
-    private:
-        /** The number of instances of libxml. **/
-        static unsigned int use_count;
-    
-        LibXmlSentry(const LibXmlSentry&);
-        LibXmlSentry& operator = (const LibXmlSentry&);
-    };
+    * Clean up libxml.
+    **/
+    ~LibXmlSentry();
+
+  private:
+    /** The number of instances of libxml. **/
+    static unsigned int use_count;
+
+    LibXmlSentry(const LibXmlSentry&);
+    LibXmlSentry& operator = (const LibXmlSentry&);
+  };
 }
 
 #endif // _LIBXMLMM_LIBXMLSENTRY_H_INCLUDED_
