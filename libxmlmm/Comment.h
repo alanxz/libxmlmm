@@ -20,7 +20,6 @@
 
 #ifndef _LIBXMLMM_COMMENT_H_INCLUDED_
 #define _LIBXMLMM_COMMENT_H_INCLUDED_
-#pragma once
 
 #include "Content.h"
 #include "defines.h"

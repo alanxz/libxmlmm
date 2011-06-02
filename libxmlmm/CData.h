@@ -20,7 +20,6 @@
 
 #ifndef _LIBXMLMM_CDATA_H_INCLUDED_
 #define _LIBXMLMM_CDATA_H_INCLUDED_
-#pragma once
 
 #include "Content.h"
 #include "defines.h"

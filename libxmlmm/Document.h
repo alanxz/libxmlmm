@@ -20,7 +20,6 @@
 
 #ifndef _LIBXMLMM_DOCUMENT_H_INCLUDED_
 #define _LIBXMLMM_DOCUMENT_H_INCLUDED_
-#pragma once
 
 #include "defines.h"
 #include "Element.h"

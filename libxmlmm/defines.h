@@ -20,7 +20,6 @@
 
 #ifndef _LIBXMLMM_DEFINES_H_INCLUDED_
 #define _LIBXMLMM_DEFINES_H_INCLUDED_
-#pragma once
 
 #ifdef WIN32
 # ifdef BUILDING_LIBXMLMM

@@ -20,7 +20,6 @@
 
 #ifndef _LIBXMLMM_ATTRIBUTE_H_INCLUDED_
 #define _LIBXMLMM_ATTRIBUTE_H_INCLUDED_
-#pragma once
 
 #include <string>
 

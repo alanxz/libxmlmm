@@ -25,7 +25,6 @@
 
 #ifndef _LIBXMLMM_LIBXMLSENTRY_H_INCLUDED_
 #define _LIBXMLMM_LIBXMLSENTRY_H_INCLUDED_
-#pragma once
 
 namespace xml
 {
