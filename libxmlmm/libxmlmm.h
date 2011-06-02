@@ -27,13 +27,13 @@
 #define _LIBXMLMM_H_INCLUDED_
 
 #include <libxmlmm/Document.h>
-#include <libxmlmm/Node.h>
-#include <libxmlmm/Element.h>
-#include <libxmlmm/Content.h>
-#include <libxmlmm/Text.h>
-#include <libxmlmm/CData.h>
-#include <libxmlmm/Comment.h>
-#include <libxmlmm/ProcessingInstruction.h>
+#include <libxmlmm/nodes/Node.h>
+#include <libxmlmm/nodes/Element.h>
+#include <libxmlmm/nodes/Content.h>
+#include <libxmlmm/nodes/Text.h>
+#include <libxmlmm/nodes/CData.h>
+#include <libxmlmm/nodes/Comment.h>
+#include <libxmlmm/nodes/ProcessingInstruction.h>
 #include <libxmlmm/utils.h>
 #include <libxmlmm/LibXmlSentry.h>
 #include <libxmlmm/exceptions.h>

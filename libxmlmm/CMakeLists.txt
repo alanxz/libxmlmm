@@ -1,33 +1,9 @@
 SET(libxmlmm_SRCS
-	Attribute.h
-	Attribute.cpp
-
-	CData.h
-	CData.cpp
-
-	Comment.h
-	Comment.cpp
-
-	Content.h
-	Content.cpp
-
 	Document.h
 	Document.cpp
 
-	Element.h
-	Element.cpp
-
 	LibXmlSentry.h
 	LibXmlSentry.cpp
-
-	Node.h
-	Node.cpp
-
-	ProcessingInstruction.h
-	ProcessingInstruction.cpp
-
-	Text.h
-	Text.cpp
 
 	defines.h
 
@@ -37,6 +13,30 @@ SET(libxmlmm_SRCS
 
 	utils.h
 	utils.cpp
+
+	nodes/Attribute.h
+	nodes/Attribute.cpp
+
+	nodes/CData.h
+	nodes/CData.cpp
+
+	nodes/Comment.h
+	nodes/Comment.cpp
+
+	nodes/Content.h
+	nodes/Content.cpp
+
+	nodes/Element.h
+	nodes/Element.cpp
+
+	nodes/Node.h
+	nodes/Node.cpp
+
+	nodes/ProcessingInstruction.h
+	nodes/ProcessingInstruction.cpp
+
+	nodes/Text.h
+	nodes/Text.cpp
 )
 
 INCLUDE_DIRECTORIES(${LIBXML2_INCLUDE_DIR})

@@ -21,7 +21,7 @@
 #ifndef _LIBXMLMM_EXCEPTIONS_H_
 #define _LIBXMLMM_EXCEPTIONS_H_
 
-#include "defines.h"
+#include "libxmlmm/defines.h"
 
 #include <stdexcept>
 

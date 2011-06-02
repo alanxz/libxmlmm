@@ -19,8 +19,8 @@
 //
 
 #include "Element.h"
-#include "exceptions.h"
-#include "utils.h"
+#include "libxmlmm/exceptions.h"
+#include "libxmlmm/utils.h"
 
 #include <cassert>
 #include <algorithm>

@@ -24,10 +24,10 @@
 // 
 
 #include "LibXmlSentry.h"
+#include "libxmlmm/utils.h"
 
 #include <libxml/tree.h>
 
-#include "utils.h"
 
 namespace xml
 {

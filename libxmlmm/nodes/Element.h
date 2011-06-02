@@ -21,9 +21,9 @@
 #ifndef _LIBXMLMM_ELEMENT_H_INCLUDED_
 #define _LIBXMLMM_ELEMENT_H_INCLUDED_
 
-#include "defines.h"
-#include "Node.h"
-#include "Text.h"
+#include "libxmlmm/defines.h"
+#include "libxmlmm/nodes/Node.h"
+#include "libxmlmm/nodes/Text.h"
 
 #include <string>
 #include <sstream>

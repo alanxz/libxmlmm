@@ -18,26 +18,29 @@
 // along with libxmlmmm. If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef _LIBXMLMM_TEXT_H_INCLUDED_
-#define _LIBXMLMM_TEXT_H_INCLUDED_
-
-#include "defines.h"
-#include "Content.h"
-
+#include "Attribute.h"
+#include "libxmlmm/utils.h"
 
 namespace xml
 {
-    /**
-     * XML Text Node Wrapper
-     **/    
-    class LIBXMLMM_EXPORT Text : public Content
+//------------------------------------------------------------------------------
+    Attribute::Attribute(xmlNode* const cobj)
+    : Node(cobj) {}
+    
+//------------------------------------------------------------------------------
+    std::string Attribute::get_value() const
     {
-    public:
-        /**
-         * Construct Wrapper
-         **/
-        explicit Text(xmlNode* const cobj);
+        const char *const ptr = reinterpret_cast<const char*>(xmlGetProp(cobj->parent, cobj->name));
+        if (ptr)
+        {
+            return ptr;
+        }
+        return "";
+    }
         
-    };    
+//------------------------------------------------------------------------------
+    void Attribute::set_value(const std::string& value)
+    {
+        xmlSetProp(cobj->parent, cobj->name, reinterpret_cast<const xmlChar*>(value.c_str()));
+    }
 }
-#endif // _LIBXMLMM_TEXT_H_INCLUDED_

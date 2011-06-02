@@ -18,25 +18,25 @@
 // along with libxmlmmm. If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef _LIBXMLMM_CDATA_H_INCLUDED_
-#define _LIBXMLMM_CDATA_H_INCLUDED_
+#ifndef _LIBXMLMM_COMMENT_H_INCLUDED_
+#define _LIBXMLMM_COMMENT_H_INCLUDED_
 
-#include "Content.h"
-#include "defines.h"
+#include "libxmlmm/nodes/Content.h"
+#include "libxmlmm/defines.h"
 
 namespace xml
 {
     /**
-     * CData Node
+     * XML Comment Node Wrapper
      **/    
-    class LIBXMLMM_EXPORT CData : public Content
+    class LIBXMLMM_EXPORT Comment : public Content
     {
     public:
         /**
          * Construct Wrapper
          **/
-        explicit CData(xmlNode* const cobj);
+        explicit Comment(xmlNode* const cobj);
         
     };    
 }
-#endif // _LIBXMLMM_CDATA_H_INCLUDED_
+#endif // _LIBXMLMM_COMMENT_H_INCLUDED_

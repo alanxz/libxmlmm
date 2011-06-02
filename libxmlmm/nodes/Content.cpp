@@ -18,29 +18,35 @@
 // along with libxmlmmm. If not, see <http://www.gnu.org/licenses/>.
 //
 
-#include "Attribute.h"
-#include "utils.h"
+#include "Content.h"
+#include "libxmlmm/utils.h"
 
 namespace xml
 {
 //------------------------------------------------------------------------------
-    Attribute::Attribute(xmlNode* const cobj)
+    Content::Content(xmlNode* cobj) 
     : Node(cobj) {}
     
 //------------------------------------------------------------------------------
-    std::string Attribute::get_value() const
+    std::string Content::get_value() const
     {
-        const char *const ptr = reinterpret_cast<const char*>(xmlGetProp(cobj->parent, cobj->name));
-        if (ptr)
+        if (cobj->content != NULL)
         {
-            return ptr;
+            return reinterpret_cast<const char*>(cobj->content);
         }
         return "";
     }
-        
+    
 //------------------------------------------------------------------------------
-    void Attribute::set_value(const std::string& value)
+    void Content::set_content(const std::string& value) 
     {
-        xmlSetProp(cobj->parent, cobj->name, reinterpret_cast<const xmlChar*>(value.c_str()));
+        xmlNodeSetContent(cobj, reinterpret_cast<const xmlChar*>(value.c_str()));
     }
+    
+//------------------------------------------------------------------------------
+    bool Content::is_blank() const 
+    {
+        return xmlIsBlankNode(const_cast<xmlNode*>(cobj));   
+    }
+
 }

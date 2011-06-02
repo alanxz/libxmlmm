@@ -20,18 +20,18 @@
 
 #include "utils.h"
 
+#include "libxmlmm/nodes/Node.h"
+#include "libxmlmm/nodes/Element.h"
+#include "libxmlmm/nodes/Text.h"
+#include "libxmlmm/nodes/Comment.h"
+#include "libxmlmm/nodes/CData.h"
+#include "libxmlmm/nodes/ProcessingInstruction.h"
+#include "libxmlmm/nodes/Attribute.h"
+
 #include <cassert>
 #include <iostream>
 #include <iterator>
 #include <libxml/xmlerror.h>
-
-#include "Node.h"
-#include "Element.h"
-#include "Text.h"
-#include "Comment.h"
-#include "CData.h"
-#include "ProcessingInstruction.h"
-#include "Attribute.h"
 
 namespace xml
 {

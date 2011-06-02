@@ -21,8 +21,8 @@
 #ifndef _LIBXMLMM_NODE_H_INCLUDED_
 #define _LIBXMLMM_NODE_H_INCLUDED_
 
-#include "defines.h"
-#include "utils.h"
+#include "libxmlmm/defines.h"
+#include "libxmlmm/utils.h"
 
 #include <string>
 #include <vector>

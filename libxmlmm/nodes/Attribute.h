@@ -18,25 +18,36 @@
 // along with libxmlmmm. If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef _LIBXMLMM_PROCESSINGINSTRUCTION_H_INCLUDED_
-#define _LIBXMLMM_PROCESSINGINSTRUCTION_H_INCLUDED_
+#ifndef _LIBXMLMM_ATTRIBUTE_H_INCLUDED_
+#define _LIBXMLMM_ATTRIBUTE_H_INCLUDED_
 
-#include "defines.h"
-#include "Content.h"
+#include <string>
+
+#include "libxmlmm/nodes/Node.h"
+#include "libxmlmm/defines.h"
 
 namespace xml
 {
     /**
-     * XML Processing Instruction Node Wrapper
+     * XML Attribtue Node Wrapper
      **/    
-    class LIBXMLMM_EXPORT ProcessingInstruction : public Content
+    class LIBXMLMM_EXPORT Attribute : public Node
     {
     public:
         /**
          * Construct Wrapper
          **/
-        explicit ProcessingInstruction(xmlNode* const cobj);
+        explicit Attribute(xmlNode* const cobj);
         
+        /**
+         * Get the value of this node.  Empty if not found.
+         **/         
+        virtual std::string get_value() const;
+        
+        /**
+         * Set the value.
+         **/
+        void set_value(const std::string& value);
     };    
 }
-#endif // _LIBXMLMM_PROCESSINGINSTRUCTION_H_INCLUDED_
+#endif // _LIBXMLMM_ATTRIBUTE_H_INCLUDED_

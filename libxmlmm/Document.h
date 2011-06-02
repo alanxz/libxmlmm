@@ -21,9 +21,9 @@
 #ifndef _LIBXMLMM_DOCUMENT_H_INCLUDED_
 #define _LIBXMLMM_DOCUMENT_H_INCLUDED_
 
-#include "defines.h"
-#include "Element.h"
-#include "LibXmlSentry.h"
+#include "libxmlmm/defines.h"
+#include "libxmlmm/nodes/Element.h"
+#include "libxmlmm/LibXmlSentry.h"
 
 #include <string>
 #include <iosfwd>

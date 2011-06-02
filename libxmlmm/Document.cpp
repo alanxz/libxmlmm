@@ -19,11 +19,11 @@
 //
 
 #include "Document.h"
+#include "libxmlmm/exceptions.h"
+#include "libxmlmm/utils.h"
 
 #include <libxml/tree.h>
 
-#include "utils.h"
-#include "exceptions.h"
 
 namespace xml
 {

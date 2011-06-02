@@ -20,12 +20,12 @@
 
 #include "Node.h"
 
-#include <cassert>
+#include "libxmlmm/nodes/Element.h"
+#include "libxmlmm/nodes/Content.h"
+#include "libxmlmm/exceptions.h"
+#include "libxmlmm/utils.h"
 
-#include "utils.h"
-#include "exceptions.h"
-#include "Element.h"
-#include "Content.h"
+#include <cassert>
 
 namespace xml
 {

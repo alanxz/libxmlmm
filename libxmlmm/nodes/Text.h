@@ -18,48 +18,26 @@
 // along with libxmlmmm. If not, see <http://www.gnu.org/licenses/>.
 //
 
-#ifndef _LIBXMLMM_CONTENT_H_INCLUDED_
-#define _LIBXMLMM_CONTENT_H_INCLUDED_
+#ifndef _LIBXMLMM_TEXT_H_INCLUDED_
+#define _LIBXMLMM_TEXT_H_INCLUDED_
 
-#include "Node.h"
-#include "defines.h"
+#include "libxmlmm/defines.h"
+#include "libxmlmm/nodes/Content.h"
 
-#include <string>
 
 namespace xml
 {
     /**
      * XML Text Node Wrapper
      **/    
-    class LIBXMLMM_EXPORT Content : public Node
+    class LIBXMLMM_EXPORT Text : public Content
     {
     public:
         /**
          * Construct Wrapper
          **/
-        explicit Content(xmlNode* const cobj);
+        explicit Text(xmlNode* const cobj);
         
-        /**
-         * Get the value of this node.  Empty if not found.
-         **/
-        virtual std::string get_value() const;
-
-        /**
-         * Get the content of a content node.  Empty if none.
-         * @deprecated Use get_value().
-         **/
-        std::string get_content() const
-        { return this->get_value(); }
-        
-        /**
-         * Set the content of a content node.
-         **/
-        void set_content(const std::string& value);
-        
-        /**
-         * Check if a given note is a blank node.
-         **/
-        bool is_blank() const;        
     };    
 }
-#endif // _LIBXMLMM_CONTENT_H_INCLUDED_
+#endif // _LIBXMLMM_TEXT_H_INCLUDED_
