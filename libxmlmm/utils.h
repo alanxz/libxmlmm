@@ -21,6 +21,8 @@
 #ifndef _LIBXMLMM_UTILS_H_
 #define _LIBXMLMM_UTILS_H_
 
+#include "defines.h"
+
 #include <iosfwd>
 #include <string>
 #include <sstream>
@@ -35,24 +37,24 @@ namespace xmlmm
     /**
      * Get the last error as string from libxml.
      **/
-    std::string get_last_error();
+    LIBXMLMM_EXPORT std::string get_last_error();
     
     /**
      * Wrap a node.
      *
      * @note This function is used as callback to libxml.
      **/
-    void wrap_node(_xmlNode* const node);
+    LIBXMLMM_EXPORT void wrap_node(_xmlNode* const node);
     
     /**
      * Free the wrapper of a node.
      *
      * @note This function is used as callback to libxml.
      **/
-    void free_wrapper(_xmlNode* node);
+    LIBXMLMM_EXPORT void free_wrapper(_xmlNode* node);
     
     /** Read from a stream until EOF. **/    
-    std::string read_until_eof(std::istream& is);
+    LIBXMLMM_EXPORT std::string read_until_eof(std::istream& is);
     
     /**
      * Convert arbitrary value to string.
