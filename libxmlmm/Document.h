@@ -53,14 +53,7 @@ namespace xmlmm
     /** 
     * Default Constructor
     **/
-    Document();
-
-    /** 
-    * Construct and populate from the specified xml string.
-    *
-    * @exception exception Throws exception if the xml is invalid.
-    **/
-    explicit Document(const std::string &xml);
+    explicit Document(const std::string& xml_version = "1.0");
 
     /**
     * Destructor

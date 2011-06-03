@@ -28,18 +28,10 @@
 namespace xmlmm
 {
   //------------------------------------------------------------------------------
-  Document::Document()
-    : cobj(xmlNewDoc(BAD_CAST "1.0"))
+  Document::Document(const std::string& xml_version)
+    : cobj(xmlNewDoc((const xmlChar*)xml_version.c_str()))
   {
     cobj->_private = this;
-  }
-
-  //------------------------------------------------------------------------------
-  Document::Document(const std::string &xml)
-    : cobj(xmlNewDoc(BAD_CAST "1.0"))
-  {
-    cobj->_private = this;
-    this->read_from_string(xml);
   }
 
   //------------------------------------------------------------------------------
