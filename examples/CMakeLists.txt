@@ -1,0 +1,2 @@
+ADD_EXECUTABLE(dom_parser_file dom_parser_file.cpp)
+TARGET_LINK_LIBRARIES(dom_parser_file xmlmm)
