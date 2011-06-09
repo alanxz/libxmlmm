@@ -1,6 +1,7 @@
 #include "DomParser.h"
 
 #include "libxmlmm/Document.h"
+#include "libxmlmm/parser/IstreamParserAdapter.h"
 
 #include <libxml/parser.h>
 
@@ -34,6 +35,16 @@ namespace xmlmm
 
   Document* DomParser::parse_stream(std::istream& stream)
   {
+    impl::IstreamParserAdapter adapter(stream);
+    xmlDocPtr doc = xmlReadIO(
+      &impl::IstreamParserAdapter::on_read,
+      &impl::IstreamParserAdapter::on_close,
+      &adapter,
+      NULL, // No URI
+      NULL, // detect encoding
+      0); // Use default options
+
+    return new Document(doc);
   }
 
   Document* DomParser::parse_raw_memory(const char* buffer, int length)

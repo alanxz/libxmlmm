@@ -34,5 +34,15 @@ namespace impl
     }
     return -1;
   }
+
+  int IstreamParserAdapter::do_read(char* buffer, int length)
+  {
+    return m_stream.readsome(buffer, length);
+  }
+
+  int IstreamParserAdapter::do_close()
+  {
+    return 0;
+  }
 } // namespace impl
 } // namespace xmlmm

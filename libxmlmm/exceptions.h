@@ -23,6 +23,7 @@
 
 #include "libxmlmm/defines.h"
 
+#include <string>
 #include <stdexcept>
 
 #ifdef _MSC_VER
@@ -63,6 +64,13 @@ namespace xmlmm
       : exception("There is no attribute '" + attribute +
       "' on the element '" + nodeName + "'.") {}
     ~NoSuchAttribute() throw() {}
+  };
+
+  struct LIBXMLMM_EXPORT ValidityError : exception
+  {
+    explicit ValidityError(const std::string& message)
+      : exception("Document is not valid: " + message) {}
+    ~ValidityError() throw() {}
   };
 }
 

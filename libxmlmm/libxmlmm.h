@@ -35,6 +35,7 @@
 #include <libxmlmm/nodes/Comment.h>
 #include <libxmlmm/nodes/ProcessingInstruction.h>
 #include <libxmlmm/utils.h>
+#include <libxmlmm/parser/DomParser.h>
 #include <libxmlmm/LibXmlSentry.h>
 #include <libxmlmm/exceptions.h>
 

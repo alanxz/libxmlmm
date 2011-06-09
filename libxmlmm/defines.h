@@ -21,11 +21,11 @@
 #ifndef _LIBXMLMM_DEFINES_H_INCLUDED_
 #define _LIBXMLMM_DEFINES_H_INCLUDED_
 
-#ifdef WIN32
+#ifdef _WIN32
 # ifdef BUILDING_LIBXMLMM
 #  define LIBXMLMM_EXPORT __declspec(dllexport)
 # else
-#  define LIBXMLMM_EXPORT __declspec(dllimport)
+#  define LIBXMLMM_EXPORT 
 # endif // BUILDING_LIBXMLMM
 #else
 # define LIBXMLMM_EXPORT 

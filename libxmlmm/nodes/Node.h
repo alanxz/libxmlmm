@@ -22,6 +22,7 @@
 #define _LIBXMLMM_NODE_H_INCLUDED_
 
 #include "libxmlmm/defines.h"
+#include "libxmlmm/Noncopyable.h"
 #include "libxmlmm/utils.h"
 
 #include <string>
@@ -42,7 +43,7 @@ namespace xmlmm
   * The Node class is the base class for all DOM elements (except Document). 
   * It is effectively a wrapper for xmlNode.
   **/    
-  class LIBXMLMM_EXPORT Node : noncopyable
+  class LIBXMLMM_EXPORT Node : Noncopyable
   {
   protected:
     /**

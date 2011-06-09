@@ -37,7 +37,7 @@ namespace xmlmm
     /**
     * Construct Wrapper
     **/
-    explicit Content(xmlNode* const cobj);
+    explicit Content(_xmlNode* const cobj);
 
     /**
     * Get the value of this node.  Empty if not found.

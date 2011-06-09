@@ -1,6 +1,7 @@
 #ifndef _LIBXMLMM_DOMPARSER_H_INCLUDED_
 #define _LIBXMLMM_DOMPARSER_H_INCLUDED_
 
+#include "libxmlmm/defines.h"
 #include "libxmlmm/Noncopyable.h"
 
 #include <iosfwd>
@@ -11,7 +12,7 @@ namespace xmlmm
 
   class Document;
 
-  class DomParser : Noncopyable
+  class LIBXMLMM_EXPORT DomParser : Noncopyable
   {
   public:
     DomParser();

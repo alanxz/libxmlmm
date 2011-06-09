@@ -39,7 +39,7 @@ namespace xmlmm
     /** 
     * Construct the Wrapper
     **/
-    explicit Element(xmlNode* const cobj);
+    explicit Element(_xmlNode* const cobj);
 
     /**
     * Get the node's name.  Empty if not found.

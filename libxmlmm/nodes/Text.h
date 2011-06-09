@@ -36,7 +36,7 @@ namespace xmlmm
     /**
     * Construct Wrapper
     **/
-    explicit Text(xmlNode* const cobj);
+    explicit Text(_xmlNode* const cobj);
 
   };    
 }

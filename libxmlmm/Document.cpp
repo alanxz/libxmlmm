@@ -34,6 +34,11 @@ namespace xmlmm
     cobj->_private = this;
   }
 
+  Document::Document(xmlDoc* doc) : cobj(doc)
+  {
+    cobj->_private = this;
+  }
+
   //------------------------------------------------------------------------------
   Document::~Document()
   {
