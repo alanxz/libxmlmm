@@ -42,7 +42,7 @@ namespace xmlmm
   * The Node class is the base class for all DOM elements (except Document). 
   * It is effectively a wrapper for xmlNode.
   **/    
-  class LIBXMLMM_EXPORT Node
+  class LIBXMLMM_EXPORT Node : noncopyable
   {
   protected:
     /**
@@ -140,9 +140,6 @@ namespace xmlmm
     std::vector<NodeType_> find_all(const std::string &xpath) const;
 
   private:
-    Node(const Node&);
-    Node& operator = (const Node&);
-
   };    
 
 } // namespace xmlmm

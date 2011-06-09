@@ -24,6 +24,7 @@
 #include "libxmlmm/defines.h"
 #include "libxmlmm/nodes/Element.h"
 #include "libxmlmm/LibXmlSentry.h"
+#include "libxmlmm/noncopyable.h"
 
 #include <string>
 #include <iosfwd>
@@ -47,7 +48,7 @@ namespace xmlmm
   *
   * @todo Add read and write from file.      
   **/    
-  class LIBXMLMM_EXPORT Document
+  class LIBXMLMM_EXPORT Document : noncopyable
   {
   public:    
     /** 
@@ -190,9 +191,6 @@ namespace xmlmm
     _xmlDoc* cobj;
 
     LibXmlSentry libxml_sentry;
-
-    Document(const Document&);
-    Document& operator = (const Document&);
   };   
 
   /** 
