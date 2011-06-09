@@ -25,5 +25,20 @@ test/test.exe
 *.vcproj.*.user
 Debug
 Release
+
+# Vim related files
 .*.sw?
 *~
+
+# Visual Studio 10 related files
+*.vcxproj*
+*.sln
+*.suo
+ipch/
+*.sdf
+*.opensdf
+
+# CMake related files
+CMakeCache.txt
+cmake_install.cmake
+CMakeFiles/
