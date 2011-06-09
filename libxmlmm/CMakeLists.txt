@@ -43,16 +43,19 @@ SET(libxmlmm_SRCS
 
 	nodes/find_nodeset.h
 	nodes/find_nodeset.cpp
+
+	parser/DomParser.h
+	parser/DomParser.cpp
+
+	parser/IstreamParserAdapter.h
+	parser/IstreamParserAdapter.cpp
 )
 
 INCLUDE_DIRECTORIES(${LIBXML2_INCLUDE_DIR})
 
 ADD_DEFINITIONS(-DBUILDING_LIBXMLMM ${LIBXML2_DEFINITIONS})
 
-ADD_LIBRARY(xmlmm-shared SHARED ${libxmlmm_SRCS})
-ADD_LIBRARY(xmlmm-static STATIC ${libxmlmm_SRCS})
+ADD_LIBRARY(xmlmm SHARED ${libxmlmm_SRCS})
 
-SET_TARGET_PROPERTIES(xmlmm-shared PROPERTIES OUTPUT_NAME xmlmm)
-SET_TARGET_PROPERTIES(xmlmm-static PROPERTIES OUTPUT_NAME xmlmm)
+TARGET_LINK_LIBRARIES(xmlmm ${LIBXML2_LIBRARIES})
 
-TARGET_LINK_LIBRARIES(xmlmm-shared ${LIBXML2_LIBRARIES})
