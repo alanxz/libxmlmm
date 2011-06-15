@@ -26,6 +26,10 @@ namespace xmlmm
   Document* DomParser::parse_file(const std::string& filename)
   {
     boost::shared_ptr<xmlParserCtxt> context(xmlCreateFileParserCtxt(filename.c_str()), xmlFreeParserCtxt);
+    if (context.get() == NULL)
+    {
+      throw xmlmm::exception("Unable to open" + filename + get_last_error());
+    }
     return parse_context(context.get());
   }
 

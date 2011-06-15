@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<telephone xmlns:xp="http://xpathrocks.com/example">
+	<xp:type>Touchtone</xp:type>
+	<manufacturer>Phone Co.</manufacturer>
+	<buttons color="grey">13</buttons>
+</telephone>

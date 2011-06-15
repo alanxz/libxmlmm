@@ -130,6 +130,9 @@ namespace xmlmm
     **/
     virtual std::string get_value() const = 0;
 
+    operator _xmlNode* ();
+    operator const _xmlNode* () const;
+
   protected:    
     /** The wrapped xmlNode object. **/
     _xmlNode* cobj;

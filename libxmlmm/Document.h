@@ -188,6 +188,9 @@ namespace xmlmm
     double query_number(const std::string& xpath) const;
     /** @} **/
 
+    operator _xmlDoc* ();
+    operator const _xmlDoc* () const;
+
   private:
     // This allows the DomParser to construct one of these
     friend class DomParser;

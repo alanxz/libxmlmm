@@ -176,5 +176,14 @@ namespace xmlmm
 
 
   //------------------------------------------------------------------------------
+  Node::operator _xmlNode *()
+  {
+    return cobj;
+  }
+
+  Node::operator const _xmlNode *() const
+  {
+    return cobj;
+  }
 
 }

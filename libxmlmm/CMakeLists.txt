@@ -49,6 +49,9 @@ SET(libxmlmm_SRCS
 
 	parser/IstreamParserAdapter.h
 	parser/IstreamParserAdapter.cpp
+
+	XPathContext.h
+	XPathContext.cpp
 )
 
 INCLUDE_DIRECTORIES(${LIBXML2_INCLUDE_DIR} ${Boost_INCLUDE_DIR})

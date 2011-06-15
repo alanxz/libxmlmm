@@ -72,6 +72,19 @@ namespace xmlmm
       : exception("Document is not valid: " + message) {}
     ~ValidityError() throw() {}
   };
+
+  struct LIBXMLMM_EXPORT NoSuchNamespacePrefix : exception
+  {
+    explicit NoSuchNamespacePrefix(const std::string& prefix) :
+      exception("There is no namespace registered to prefix: '" + prefix + "'"),
+        m_prefix(prefix) {}
+      ~NoSuchNamespacePrefix() throw() {}
+
+      std::string get_prefix() const { return m_prefix; }
+
+  private:
+    std::string m_prefix;
+  };
 }
 
 #ifdef _MSC_VER

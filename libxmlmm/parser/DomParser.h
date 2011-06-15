@@ -4,6 +4,7 @@
 #include "libxmlmm/defines.h"
 #include "libxmlmm/Noncopyable.h"
 #include "libxmlmm/LibXmlSentry.h"
+#include "libxmlmm/Document.h"
 
 #include <iosfwd>
 #include <string>

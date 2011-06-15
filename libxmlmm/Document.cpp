@@ -280,6 +280,16 @@ namespace xmlmm
     }
   }
 
+  Document::operator _xmlDoc *()
+  {
+    return cobj;
+  }
+
+  Document::operator const _xmlDoc *() const
+  {
+    return cobj;
+  }
+
   //------------------------------------------------------------------------------
   std::ostream& operator << (std::ostream& os, const Document& doc)
   {
