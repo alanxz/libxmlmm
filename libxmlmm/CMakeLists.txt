@@ -11,7 +11,7 @@ SET(libxmlmm_SRCS
 
 	libxmlmm.h
 
-	noncopyable.h
+	Noncopyable.h
 
 	utils.h
 	utils.cpp
