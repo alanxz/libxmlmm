@@ -12,9 +12,9 @@
 namespace xmlmm
 {
 
-  // TODO: Fix
-  XPathContext::XPathContext(Document* doc) : m_cobj(xmlXPathNewContext(static_cast<_xmlDoc*>(*doc)))
+  XPathContext::XPathContext(Document* doc) : m_cobj(NULL)
   {
+    m_cobj = xmlXPathNewContext(static_cast<_xmlDoc*>(*doc));
   }
 
   XPathContext::~XPathContext()
@@ -101,12 +101,13 @@ namespace xmlmm
       xmlXPathEval(reinterpret_cast<const xmlChar*>(xpath.c_str()), m_cobj),
       xmlXPathFreeObject);
 
-    if (result->type != XPATH_NODESET)
+    if (result->type != XPATH_NODESET || result->nodesetval == NULL)
     {
       return NodeSet_t();
     }
 
-    NodeSet_t result_nodes(result->nodesetval->nodeNr);
+    NodeSet_t result_nodes;
+    result_nodes.reserve(result->nodesetval->nodeNr);
     for (int i = 0; i < result->nodesetval->nodeNr; ++i)
     {
       result_nodes.push_back(reinterpret_cast<Node*>(result->nodesetval->nodeTab[i]->_private));
