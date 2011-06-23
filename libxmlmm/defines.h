@@ -22,10 +22,10 @@
 #define _LIBXMLMM_DEFINES_H_INCLUDED_
 
 #ifdef _WIN32
-# ifdef BUILDING_LIBXMLMM
+# ifdef xmlmm_EXPORTS
 #  define LIBXMLMM_EXPORT __declspec(dllexport)
 # else
-#  define LIBXMLMM_EXPORT 
+#  define LIBXMLMM_EXPORT __declspec(dllimport)
 # endif // BUILDING_LIBXMLMM
 #else
 # define LIBXMLMM_EXPORT 
