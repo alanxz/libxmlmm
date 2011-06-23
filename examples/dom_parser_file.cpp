@@ -16,6 +16,11 @@ int main(int argc, char* argv[])
 
   std::cout << root->query_string("buttons/@doesnotexist") << std::endl;
 
+  xmlmm::XPathContext xp(doc);
+
+  xmlmm::XPathContext::NodeSet_t nodes = xp.find_nodes("/telephone/type");
+
+
   delete doc;
 
   return 0;
