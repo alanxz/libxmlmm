@@ -20,6 +20,8 @@
 
 #include "Comment.h"
 
+#include <libxml/tree.h>
+
 namespace xmlmm
 {
   //------------------------------------------------------------------------------

@@ -51,7 +51,7 @@ namespace xmlmm
   *
   * @note This function is used as callback to libxml.
   **/
-  LIBXMLMM_EXPORT void free_wrapper(_xmlNode* node);
+  LIBXMLMM_EXPORT void free_wrapper(_xmlNode* const node);
 
   /** Read from a stream until EOF. **/    
   LIBXMLMM_EXPORT std::string read_until_eof(std::istream& is);

@@ -20,11 +20,12 @@
 
 #include "Content.h"
 #include "libxmlmm/utils.h"
+#include <libxml/tree.h>
 
 namespace xmlmm
 {
   //------------------------------------------------------------------------------
-  Content::Content(xmlNode* cobj) 
+  Content::Content(xmlNode* const cobj) 
     : Node(cobj) {}
 
   //------------------------------------------------------------------------------

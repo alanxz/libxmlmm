@@ -95,7 +95,14 @@ namespace xmlmm
 
   XPathContext::NodeSet_t XPathContext::find_nodes(const std::string& xpath, const Node* context)
   {
-    m_cobj->node = *const_cast<Node*>(context);
+	if (context != NULL)
+	{
+	   m_cobj->node = *const_cast<Node*>(context);
+	}
+	else
+	{
+	   m_cobj->node = NULL;
+	}
 
     boost::shared_ptr<xmlXPathObject> result(
       xmlXPathEval(reinterpret_cast<const xmlChar*>(xpath.c_str()), m_cobj),

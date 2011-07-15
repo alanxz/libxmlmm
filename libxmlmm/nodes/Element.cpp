@@ -22,6 +22,8 @@
 #include "libxmlmm/exceptions.h"
 #include "libxmlmm/utils.h"
 
+#include <libxml/tree.h>
+
 #include <cassert>
 #include <algorithm>
 #include <typeinfo> 

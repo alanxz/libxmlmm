@@ -109,7 +109,7 @@ namespace xmlmm
     case XML_PI_NODE:
     case XML_ATTRIBUTE_NODE:
       {
-        Node* const node = reinterpret_cast<Node* const>(cobj->_private);
+        Node* const node = reinterpret_cast<Node*>(cobj->_private);
         delete node;
         cobj->_private = NULL;
         break;

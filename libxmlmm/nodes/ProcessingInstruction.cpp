@@ -20,6 +20,8 @@
 
 #include "ProcessingInstruction.h"
 
+#include <libxml/tree.h>
+
 namespace xmlmm
 {
   //------------------------------------------------------------------------------

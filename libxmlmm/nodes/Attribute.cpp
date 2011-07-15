@@ -20,6 +20,7 @@
 
 #include "Attribute.h"
 #include "libxmlmm/utils.h"
+#include <libxml/tree.h>
 
 namespace xmlmm
 {
